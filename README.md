@@ -84,6 +84,7 @@ server {
     listen       80;
     server_name  ytbmp3.com;
     return       301 http://www.ytbmp3.com$request_uri;
+    #redirect non-www to www
 }
 ```
 
@@ -97,12 +98,12 @@ http://uwsgi-docs.readthedocs.org/en/latest/tutorials/Django_and_nginx.html
 
 # Django-related settings
 # the base directory (full path)
-chdir           = /first/first/ytbmp3
+chdir           = /srv/first/ytbmp3
 # Django's wsgi file
 module          = ytbmp3.wsgi
 # the virtualenv (full path)
-home            = /first/first/
-#logto		= /first/first/ytbmp3/error.log
+home            = /srv/first/
+#logto		= /srv/first/ytbmp3/error.log
 # process-related settings
 # master
 master          = true
@@ -110,7 +111,7 @@ master          = true
 processes       = 4
 max-requests	= 3000
 # the socket (use the full path to be safe
-socket          = /first/first/ytbmp3/ytbmp3.sock
+socket          = /srv/first/ytbmp3/ytbmp3.sock
 # ... with appropriate permissions - may be needed
  chmod-socket    = 664
 # clear environment on exit
