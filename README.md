@@ -28,15 +28,17 @@ Technology Stack
 
 Instalation
 -----------
-setup your domain and database
-/settings/base.py
 ```
 virtualenv /srv/first
 cd /sr/first
 source bin/activate
 pip install Django
-git clone http://github.com/mishop/
+git clone https://github.com/mishop/ytbmp3.git
 pip install requirments.txt
+```
+setup your domain and database
+/settings/base.py
+```
 python manage.py migrate
 python manage.py collectstatic
 ```
@@ -85,9 +87,9 @@ server {
 ```
 
 uwsgi configuration
+---------
 read more
 http://uwsgi-docs.readthedocs.org/en/latest/tutorials/Django_and_nginx.html
----------
 ```
 # mysite_uwsgi.ini file
 [uwsgi]
