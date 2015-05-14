@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main %}
+
+  <!-- Top Ad -->
+  {% if ad_top %}
+    <div class="row text-center">
+      {{ ad_top.code|safe }}
+    </div>
+  {% endif %}
+
+  <div class="row">
+    <div class="col-md-12">
+      <form id="downloadForm" class="form-horizontal" data-url="{% url 'convert_ajax_view' %}" method="post">
+        {% csrf_token %}
+        <div class="text-center">
+          <h3>Enter the Youtube Video URL to convert to MP3</h3>
+        </div>
+        <div class="col-md-6 col-md-offset-3">
+          <div id="result"></div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-6 col-md-offset-3">
+            <input id="youtubeUrl" type="url" name="url" class="form-control input-lg" placeholder="e.g. https://www.youtube.com/watch?v=MN6YOAYb_M0" onclick="this.select();" required>
+          </div>
+        </div>
+        <div class="text-center">
+          <button id="convertButton" type="submit" class="btn btn-primary btn-lg">Convert</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row panel-body">
+      <div class="col-md-6 col-md-offset-3">
+          <div class="text-center">
+              <div class="fb-share-button" data-href="http://www.ytbmp3.com" data-layout="box_count"></div>
+	     <div class="g-plusone" data-size="tall"></div>
+	     <a href="https://twitter.com/share" class="twitter-share-button" data-via="mishomp" data-hashtags="ytbmp3" data-count="vertical">Tweet</a>
+  <!--  <div class="addthis_sharing_toolbox text-center"></div> -->
+		</div>
+         </div>
+  </div>
+  <!-- Bottom Ad -->
+  {% if ad_bottom %}
+    <div class="row text-center">
+      {{ ad_bottom.code|safe }}
+    </div>
+  {% endif %} 
+Created by <a href="http://www.ytbmp3.com/">ytbMP3.com</a>
+{% endblock %}
+
+{% block extrajs %}
+  <script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

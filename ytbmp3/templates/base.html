@@ -1,0 +1,76 @@
+{% load staticfiles %}
+
+<!-- From django-compressor app -->
+{% load compress %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Youtube to MP3 Downloader{% endblock %} | YTBmp3.com</title>
+    <meta name="description" content="Free Youtube to mp3 Downloader. Easey to use. one click downoad, audio preview available">
+    <meta name="viewport" content="width=device-width">
+
+    {% compress css %}
+    <!-- CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <style>
+        body {margin-top: 75px;}
+    </style>
+    {% block extracss %}{% endblock %}
+    {% endcompress %}
+      <meta property="og:image" content="{% static 'youtbe-to-mp3.png' %}">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <span class="fa fa-music"></span> YouTube to mp3 Downloader</a>
+      </div>
+    </nav>
+
+      <div class="container">
+        {% block main %}{% endblock %}
+      </div><!-- /.container -->
+
+      {% compress js %}
+      <!-- JavaScript -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+      <script src="{% static 'vendor/bootstrap/js/bootstrap.js' %}"></script>
+      {% block extrajs %}{% endblock %}
+      {% endcompress %}
+
+      <!-- Google Adsense-->
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>  
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3&appId=1567662436786741";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<!-- Place this tag in your head or just before your close body tag. -->
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id))	{js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+      <!-- Google Analytics -->
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', '{{ google_analytics_tracking_id }}', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </body>
+</html>
