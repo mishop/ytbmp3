@@ -74,7 +74,15 @@ def start_conversion(url, audio_filename, video):
     # process of converting the same video.
     # to change mp3 quality change --audio-quality (0-9) 0-best https://github.com/rg3/youtube-dl/issues/5673 
     output_filepath = os.path.join(settings.MEDIA_ROOT, audio_filename)
-    result = subprocess.check_call(['python','-m', 'youtube_dl','--no-playlist','--extract-audio','--audio-format', 'mp3','--audio-quality', '4', '--output',  str(output_filepath[:-4]) + '.%(ext)s', url, ])
+    result = subprocess.check_call([
+        'python','-m',
+        'youtube_dl','--no-playlist',
+        '--extract-audio',
+        '--audio-format', 'mp3',
+        '--audio-quality', '4', 
+        '--output',  str(output_filepath[:-4]) + '.%(ext)s',
+        url,
+    ])
     # Status code 0 is successful.
     if result == 0:
         # Update the video object.
