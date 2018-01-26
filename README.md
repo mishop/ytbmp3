@@ -1,4 +1,4 @@
-YouTube MP3 Downloader
+YouTube MP3 Converter - YTBmp3.com
 ========================
 
 A Django web application for extracting the audio from a YouTube video and converts it to MP3 that a user can download.
