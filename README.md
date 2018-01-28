@@ -10,6 +10,11 @@ In this aplication corrected same bugs.
 MP3 files are corupted (can't play in same players) in original application (corrected)
 MP3 quality setted to 134Kbs and can bee changed apps/downloader/tasks.py#77
 
+
+----------------
+YTBmp3 now is  now much improved. Story about tehnology will be soon. 
+**Story about development:** https://orangeunit.com/projects/youtube-mp3-converter/
+
 Technology Stack
 ----------------
 
